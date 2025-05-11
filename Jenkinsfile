@@ -6,6 +6,7 @@ pipeline {
             steps {
                 echo 'Compile and package the app'
                 echo 'Tool: npm'
+                echo 'Updated build'
             }
         } 
         stage('Unit and Integration Tests') {
