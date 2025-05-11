@@ -2,6 +2,11 @@ pipeline {
     agent any
     
     stages {
+        stage('Tester') {
+            steps {
+                echo "Testing poll SCM"
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Compile and package the app'
