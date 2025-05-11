@@ -1,12 +1,6 @@
 pipeline {
     agent any
     
-    environment {
-        DIRECTORY_PATH = './portfolio'
-        TESTING_ENVIRONMETN = 'test-env'
-        PRODUCTION_ENVIRONMENT = 'clupai-prod'
-    }
-    
     stages {
         stage('Build') {
             steps {
