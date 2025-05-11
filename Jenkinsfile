@@ -10,8 +10,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Fetch the source code from the dire ctory path specified by the environment variable'
-                echo 'Compile the code and genreate any necessary artefacts'
+                echo 'Compile and package the app'
+                echo 'Tool: npm'
             }
         } 
         stage('Test') {
