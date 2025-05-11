@@ -8,31 +8,41 @@ pipeline {
                 echo 'Tool: npm'
             }
         } 
-        stage('Test') {
-            steps {
-                echo "Unit tests"
-                echo 'Integration tests'
-            }
-        }
-        stage('Code Quality Check') {
-            steps {
-                echo 'Check the quality of the code'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploy the application to a testing environment specified by the environment variable'
-            }
-        }
-        stage('Approval') {
-            steps {
-                sleep 10
-            }
-        }
-        stage('Deploy to Production') {
-            steps {
-                echo 'Deployed the project to $PRODUCTION_ENVIRONMENT'
-            }
-        }
+        stage('Unit and Integration Tests') {
+      steps {
+        echo "Run automated unit and integration tests"
+        echo "Tool: Jest"
+      }
+    }
+    stage('Code Analysis') {
+      steps {
+        echo 'Perform static code analysis to make sure the code meets industry standards'
+        echo "ESLint"
+      }
+    }
+    stage('Security Scan') {
+      steps {
+        echo 'Scan dependecies for vulnerabilities'
+        echo "Tool: `npm audit`"
+      }
+    }
+    stage('Deploy to Staging') {
+      steps {
+        echo 'Deploy to staging environment'
+        echo "Tool: AWS EC2"
+      }
+    }
+    stage('Integration Tests on Staging') {
+      steps {
+        echo "Verify end-to-end functionality"
+        echo "Tool: Selenium"
+      }
+    }
+    stage('Deploy to Production') {
+      steps {
+        echo 'Push to production server'
+        echo 'Tool: Docker'
+      }
+    }
     }
 }
